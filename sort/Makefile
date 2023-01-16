@@ -1,17 +1,17 @@
 CC		= gcc
-
 CFLAGS  = -Wall -Werror -Wextra
-
 SRCS	= sort_utils.c sort.c
 OBJS	= $(SRCS:%c=%o)
 
+######   path  ########
 STACK_PATH = ../stack/
 LIBSTACK = ../stack/libstack.a
-
 INCLUDE = ../include
 
-.o: $(SRCS)
-			$(CC) -I$(INCLUDE) -c $(SRCS)
+all:	$(OBJS)
+
+$(OBJS): $(SRCS)
+	$(CC) -I$(INCLUDE) -c $?
 
 clean:
 	rm $(OBJS)
