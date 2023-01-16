@@ -1,14 +1,17 @@
+NAME = test
+SRCS = main.c
+OBJS = $(SRCS:%.c=%.o)
 
-SRCS 	 = sort/*.c stack/*.c
-OBJDIR = objs
-OBJS	 = $(SRCS:%.c=%.o)
+$(NAME): $(SRCS)
+	make -C sort
+	make -C stack
+	gcc -c $(SRCS)
+	gcc main.o sort/*.o stack/*.o -o test
 
-all:	$(OBJDIR)
+clean:
+	- make clean -C sort
+	- make clean -C stack
+	- rm $(OBJS)
 
-$(OBJS): $(SRCS)
-	make .o -C sort
-	make .o -C stack
-
-$(OBJDIR): $(OBJS)
-	mkdir $(OBJDIR)
-	cp $(OBJS) obj
+fclean: clean
+	rm $(NAME)
