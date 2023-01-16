@@ -7,7 +7,7 @@ OBJS	= $(SRCS:%c=%o)
 INCLUDE = ../include/
 NAME = stack
 
-.c.o: $(OBJS)
+.o: $(SRCS)
 			$(CC) $(CFLAGS) -c $(SRCS) -I$(INCLUDE) 
 
 $(NAME): $(OBJS)

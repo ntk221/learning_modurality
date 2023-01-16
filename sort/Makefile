@@ -10,7 +10,7 @@ LIBSTACK = ../stack/libstack.a
 
 INCLUDE = ../include
 
-.c.o: $(OBJS)
+.o: $(SRCS)
 			$(CC) -I$(INCLUDE) -c $(SRCS)
 
 clean:
