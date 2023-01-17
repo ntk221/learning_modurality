@@ -10,6 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef STACK_H
+# define STACK_H
+
 #include <stdlib.h>
 #include <stdbool.h>
 #include <unistd.h>
@@ -50,3 +53,4 @@ extern t_stack		*push(t_stack *src, t_stack *dst);
 extern t_stack		*pa(t_stack *stack_a, t_stack *stack_b);
 extern t_stack		*pb(t_stack *stack_a, t_stack *stack_b);
 
+#endif

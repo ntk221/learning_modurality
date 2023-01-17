@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.h                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 22:07:49 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/15 22:26:1 by kazuki           ###   ########.fr       */
+/*   Created: 2022/10/06 11:10:48 by kazuki            #+#    #+#             */
+/*   Updated: 2022/10/16 00:28:42 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STACK_H
-# define STACK_H
+#include "libft.h"
 
-#include <stack.h>
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void	*mem;
 
-/* helper function */
-t_stack_node	*find_min_node(t_stack *stack_a, size_t *index);
-
-t_stack	*radix_sort(t_stack *a, t_stack *b);
-t_stack	*sort_3(t_stack *stack_a);
-t_stack	*sort_5(t_stack *stack_a, t_stack *stack_b);
-t_stack	*sort_4(t_stack *stack_a, t_stack *stack_b);
-extern	t_stack	*sort(t_stack *stack_a, t_stack *stack_b);
-
-#endif
+	if (nmemb != 0)
+		if (SIZE_MAX / nmemb < size)
+			return (NULL);
+	mem = (void *)malloc(nmemb * size);
+	if (!mem)
+		return (NULL);
+	ft_bzero(mem, size * nmemb);
+	return (mem);
+}

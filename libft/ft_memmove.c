@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.h                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 22:07:49 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/15 22:26:1 by kazuki           ###   ########.fr       */
+/*   Created: 2022/10/05 10:33:33 by kazuki            #+#    #+#             */
+/*   Updated: 2022/10/05 15:51:54 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STACK_H
-# define STACK_H
+#include "libft.h"
 
-#include <stack.h>
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	unsigned char		*tmp;
+	const unsigned char	*s;
 
-/* helper function */
-t_stack_node	*find_min_node(t_stack *stack_a, size_t *index);
-
-t_stack	*radix_sort(t_stack *a, t_stack *b);
-t_stack	*sort_3(t_stack *stack_a);
-t_stack	*sort_5(t_stack *stack_a, t_stack *stack_b);
-t_stack	*sort_4(t_stack *stack_a, t_stack *stack_b);
-extern	t_stack	*sort(t_stack *stack_a, t_stack *stack_b);
-
-#endif
+	if (dest == NULL || src == NULL)
+		return (dest);
+	tmp = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	if (dest <= src)
+	{
+		while (n--)
+			*tmp++ = *s++;
+	}
+	else
+	{
+		tmp += n;
+		s += n;
+		while (n--)
+		{
+			tmp--;
+			s--;
+			*tmp = *s;
+		}
+	}
+	return (dest);
+}

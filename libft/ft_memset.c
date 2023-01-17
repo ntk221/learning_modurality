@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.h                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 22:07:49 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/15 22:26:1 by kazuki           ###   ########.fr       */
+/*   Created: 2022/10/04 12:35:37 by kazuki            #+#    #+#             */
+/*   Updated: 2022/10/05 11:12:06 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STACK_H
-# define STACK_H
+#include "libft.h"
 
-#include <stack.h>
+void	*ft_memset(void *b, int c, size_t len)
+{
+	char	*dest;
 
-/* helper function */
-t_stack_node	*find_min_node(t_stack *stack_a, size_t *index);
-
-t_stack	*radix_sort(t_stack *a, t_stack *b);
-t_stack	*sort_3(t_stack *stack_a);
-t_stack	*sort_5(t_stack *stack_a, t_stack *stack_b);
-t_stack	*sort_4(t_stack *stack_a, t_stack *stack_b);
-extern	t_stack	*sort(t_stack *stack_a, t_stack *stack_b);
-
-#endif
+	dest = (char *)b;
+	while (len > 0)
+	{
+		*dest = (char)c;
+		len--;
+		dest++;
+	}
+	return (b);
+}

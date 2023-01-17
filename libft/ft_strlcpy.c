@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.h                                             :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 22:07:49 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/15 22:26:1 by kazuki           ###   ########.fr       */
+/*   Created: 2022/06/22 08:00:57 by kazuki            #+#    #+#             */
+/*   Updated: 2022/10/05 19:17:00 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STACK_H
-# define STACK_H
+#include "libft.h"
 
-#include <stack.h>
+size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
+{
+	size_t		i;
 
-/* helper function */
-t_stack_node	*find_min_node(t_stack *stack_a, size_t *index);
-
-t_stack	*radix_sort(t_stack *a, t_stack *b);
-t_stack	*sort_3(t_stack *stack_a);
-t_stack	*sort_5(t_stack *stack_a, t_stack *stack_b);
-t_stack	*sort_4(t_stack *stack_a, t_stack *stack_b);
-extern	t_stack	*sort(t_stack *stack_a, t_stack *stack_b);
-
-#endif
+	i = 0;
+	if (dstsize == 0)
+		return (ft_strlen(src));
+	while (i + 1 < dstsize && src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (ft_strlen(src));
+}

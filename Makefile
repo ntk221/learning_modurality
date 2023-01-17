@@ -1,11 +1,12 @@
 NAME = test
 SRCS = main.c
 OBJS = $(SRCS:%.c=%.o)
+INCLUDE = include
 
 $(NAME): $(SRCS)
 	- make -C sort
 	- make -C stack
-	gcc -c $(SRCS)
+	gcc -c $(SRCS) -I$(INCLUDE)
 	gcc main.o sort/*.o stack/*.o -o test
 
 clean:
