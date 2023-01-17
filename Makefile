@@ -3,13 +3,14 @@ SRCS = main.c arguments_check.c compression.c
 OBJS = $(SRCS:%.c=%.o)
 INCLUDE = include
 LIB = libft
+CC = gcc
 
 $(NAME): $(SRCS)
 	- make -C sort
 	- make -C stack
-	- mkae -C libft
-	gcc -I$(INCLUDE) -L$(LIB) -c $(SRCS) -lft
-	gcc -I$(INCLUDE) -L$(LIB) $(OBJS) sort/*.o stack/*.o -o $(NAME) -lft
+	- make -C libft
+	$(CC) -I$(INCLUDE)  -c $(SRCS)
+	$(CC) -I$(INCLUDE) -L$(LIB) $(OBJS) sort/*.o stack/*.o -o $(NAME) -lft
 
 clean:
 	- make clean -C sort
