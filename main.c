@@ -2,5 +2,6 @@
 
 int main()
 {
+  ft_putendl_fd("hoge", 1);
   return 0;
 }
