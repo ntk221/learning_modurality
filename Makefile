@@ -3,8 +3,8 @@ SRCS = main.c
 OBJS = $(SRCS:%.c=%.o)
 
 $(NAME): $(SRCS)
-	make -C sort
-	make -C stack
+	- make -C sort
+	- make -C stack
 	gcc -c $(SRCS)
 	gcc main.o sort/*.o stack/*.o -o test
 
