@@ -24,5 +24,8 @@ int				*bubble_sort_arr(int *list, int len);
 int				*copy_data(int *copy, int argc);
 int				*compression(int	*data, int argc);
 
+t_stack	*initialize_stack_a(t_stack *stack_a, int	*data, int argc);
+bool	is_sorted(t_stack *stack);
+
 #endif
 
