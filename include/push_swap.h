@@ -11,8 +11,8 @@
 # include <sort.h>
 
 /* util functions */
-int				ps_atoi(const char *str, bool *error);
-int				atoi_loop(const char *str, int num, int sign, bool *error);
+int				ps_atoi(const char *str);
+int				atoi_loop(const char *str, int num, int sign);
 bool			check_argv(int argc, char **argv);
 void			error_message(void);
 t_stack			*initialize_stack_a(t_stack *stack_a, int *data, int argc);
