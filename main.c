@@ -50,7 +50,16 @@ int main(int argc, char **argv)
   data = compression(data, argc);
   a = initialize_stack_a(a, data, argc);
   free(data);
-  // a = create_stack();
-  // error_message();
+  b = create_stack();
+  if (!is_sorted(a))
+    a = sort(a, b);
+  if (a == NULL)
+  {
+    destroy_stack(a);
+    destroy_stack(b);
+    error_message();
+  }
+  destroy_stack(a);
+  destroy_stack(b);
   return 0;
 }

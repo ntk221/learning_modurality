@@ -9,7 +9,7 @@ $(NAME): $(SRCS)
 	- make -C stack
 	- mkae -C libft
 	gcc -I$(INCLUDE) -L$(LIB) -c $(SRCS) -lft
-	gcc -L$(LIB) $(OBJS) sort/*.o stack/*.o -o $(NAME) -lft
+	gcc -I$(INCLUDE) -L$(LIB) $(OBJS) sort/*.o stack/*.o -o $(NAME) -lft
 
 clean:
 	- make clean -C sort
