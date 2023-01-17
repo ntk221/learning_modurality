@@ -6,7 +6,7 @@
 void	error_message(void)
 {
   ft_putendl_fd("Error", 2);
-	exit(1);
+  exit(1);
 }
 
 static int	is_space(const char c)

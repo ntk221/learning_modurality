@@ -15,27 +15,17 @@
 
 t_stack	*push(t_stack *src, t_stack *dst)
 {
-	int		*data;
+	int		data;
 	bool	ret;
 
 	if (!(src->size > 0))
 		return (NULL);
-	data = (int *)malloc(sizeof(int));
-	if (!data)
-		return (NULL);
 	ret = pop_front(src, &data);
 	if (!ret)
-	{
-		free(data);
 		return (NULL);
-	}
-	ret = push_front(dst, *data);
+	ret = push_front(dst, data);
 	if (!ret)
-	{
-		free(data);
 		return (NULL);
-	}
-	free(data);
 	return (dst);
 }
 

@@ -34,8 +34,8 @@ typedef struct s_stack
 t_stack			*create_stack(void);
 bool			push_front(t_stack *stack, int value);
 bool			push_back(t_stack *stack, int value);
-bool			pop_front(t_stack *stack, int **data);
-bool			pop_back(t_stack *stack, int **data);
+bool			pop_front(t_stack *stack, int *data);
+bool			pop_back(t_stack *stack, int *data);
 void			destroy_stack(t_stack *stack);
 void			print_stack(t_stack *stack);
 

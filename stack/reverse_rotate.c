@@ -14,15 +14,13 @@
 
 t_stack	*reverse_rotate(t_stack *stack)
 {
-	int		*data;
+	int		data;
 	bool	res;
 
-	data = (int *)malloc(sizeof(int));
 	res = pop_back(stack, &data);
 	if (!res)
 		return (NULL);
-	res = push_front(stack, *data);
-	free(data);
+	res = push_front(stack, data);
 	if (!res)
 		return (NULL);
 	return (stack);

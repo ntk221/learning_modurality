@@ -13,14 +13,14 @@
 #include <stack.h>
 #include <stdbool.h>
 
-bool	pop_front(t_stack *stack, int **data)
+bool	pop_front(t_stack *stack, int *data)
 {
 	t_stack_node	*head;
 	t_stack_node	*new_head;
 
 	if (1 == stack->size)
 	{
-		**data = stack->head->val;
+		*data = stack->head->val;
 		free(stack->head);
 		stack->head = NULL;
 		stack->size--;
@@ -30,7 +30,7 @@ bool	pop_front(t_stack *stack, int **data)
 	{
 		head = stack->head;
 		new_head = head->next;
-		**data = head->val;
+		*data = head->val;
 		free(head);
 		stack->head = new_head;
 		stack->size--;
@@ -39,14 +39,14 @@ bool	pop_front(t_stack *stack, int **data)
 	return (false);
 }
 
-bool	pop_back(t_stack *stack, int **data)
+bool	pop_back(t_stack *stack, int *data)
 {
 	t_stack_node	*last;
 	t_stack_node	*new_last;
 
 	if (1 == stack->size)
 	{
-		**data = stack->last->val;
+		*data = stack->last->val;
 		free(stack->last);
 		stack->last = NULL;
 		stack->size--;
@@ -56,7 +56,7 @@ bool	pop_back(t_stack *stack, int **data)
 	{
 		last = stack->last;
 		new_last = last->prev;
-		**data = last->val;
+		*data = last->val;
 		free(last);
 		stack->last = new_last;
 		stack->size--;
