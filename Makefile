@@ -1,5 +1,5 @@
 NAME = push_swap
-SRCS = main.c
+SRCS = main.c arguments_check.c compression.c
 OBJS = $(SRCS:%.c=%.o)
 INCLUDE = include
 LIB = libft
@@ -8,8 +8,8 @@ $(NAME): $(SRCS)
 	- make -C sort
 	- make -C stack
 	- mkae -C libft
-	gcc -c $(SRCS) -I$(INCLUDE)
-	gcc -L$(LIB) main.o sort/*.o stack/*.o -o $(NAME) -lft
+	gcc -I$(INCLUDE) -L$(LIB) -c $(SRCS) -lft
+	gcc -L$(LIB) $(OBJS) sort/*.o stack/*.o -o $(NAME) -lft
 
 clean:
 	- make clean -C sort
@@ -18,3 +18,5 @@ clean:
 
 fclean: clean
 	rm $(NAME)
+
+re: fclean $(NAME)
