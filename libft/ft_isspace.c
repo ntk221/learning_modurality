@@ -1,39 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 08:35:43 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/19 00:20:08 by kazuki           ###   ########.fr       */
+/*   Created: 2023/01/19 00:28:32 by kazuki            #+#    #+#             */
+/*   Updated: 2023/01/19 00:32:23 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stack.h>
-#include <push_swap.h>
+#include "libft.h"
 
-void	swap(t_stack **stack)
+int	ft_isspace(int c)
 {
-	int				tmp;
-	t_stack_node	*head;
-
-	head = (*stack)->head;
-	if ((*stack)->size < 2)
-		error(stack, NULL);
-	tmp = head->val;
-	head->val = head->next->val;
-	head->next->val = tmp;
-}
-
-void	sa(t_stack **a)
-{
-	swap(a);
-	ft_putendl_fd("sa", 1);
-}
-
-void	sb(t_stack **b)
-{
-	swap(b);
-	ft_putendl_fd("sb", 1);
+	return (c == '\t' || c == '\n' || \
+		c == '\v' || c == '\f' || c == '\r' || c == ' ');
 }

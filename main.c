@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/19 00:34:11 by kazuki            #+#    #+#             */
+/*   Updated: 2023/01/19 00:38:00 by kazuki           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <push_swap.h>
 
 t_stack	*initialize_stack_a(t_stack *stack_a, int	*data, int argc)
@@ -36,30 +48,24 @@ bool	is_sorted(t_stack *stack)
 	return (true);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-  t_stack *a;
-  t_stack *b;
-  int     *data;
+	t_stack	*a;
+	t_stack	*b;
+	int		*data;
 
-  if (argc < 2)
-    error_message();
-  if (!check_argv(argc, argv))
-    error_message();
-  data = argv_to_array(argc, argv);
-  data = compression(data, argc);
-  a = initialize_stack_a(a, data, argc);
-  free(data);
-  b = create_stack();
-  if (!is_sorted(a))
-    a = sort(a, b);
-  if (a == NULL)
-  {
-    destroy_stack(a);
-    destroy_stack(b);
-    error_message();
-  }
-  destroy_stack(a);
-  destroy_stack(b);
-  return 0;
+	if (argc < 2)
+		error_message();
+	if (!check_argv(argc, argv))
+		error_message();
+	data = argv_to_array(argc, argv);
+	data = compression(data, argc);
+	a = initialize_stack_a(a, data, argc);
+	free(data);
+	b = create_stack();
+	if (!is_sorted(a))
+		sort(&a, &b);
+	destroy_stack(a);
+	destroy_stack(b);
+	return (0);
 }

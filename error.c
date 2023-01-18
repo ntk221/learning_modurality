@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 10:38:44 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/19 00:18:03 by kazuki           ###   ########.fr       */
+/*   Created: 2023/01/18 20:19:37 by kazuki            #+#    #+#             */
+/*   Updated: 2023/01/19 00:35:05 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stack.h>
 #include <push_swap.h>
 
-void	push(t_stack **src, t_stack **dst)
+// Usage : This function outputs string "Error\n" to stderr
+//         and call exit() to finish the program.
+// Note： exit() should be called after freed all allocated memory ...?
+void	error_message(void)
 {
-	int		data;
-	bool	ret;
-
-	if (!((*src)->size > 0))
-		error(src, dst);
-	ret = pop_front(*src, &data);
-	if (!ret)
-		error(src, dst);
-	ret = push_front(*dst, data);
-	if (!ret)
-		error(src, dst);
+	ft_putendl_fd("Error", 2);
+	exit(1);
 }
 
-void	pa(t_stack **a, t_stack **b)
+void	error(t_stack **first, t_stack **second)
 {
-	push(b, a);
-	ft_putendl_fd("pa", 1);
-}
-
-void	pb(t_stack **a, t_stack **b)
-{
-	push(a, b);
-	ft_putendl_fd("pb", 1);
+	if (*first == NULL && *second == NULL)
+		return ;
+	if (*first != NULL)
+		free(*first);
+	if (*second != NULL)
+		free(*second);
+	error_message();
 }

@@ -6,44 +6,42 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:49:13 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/15 21:53:31 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/18 20:48:54 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stack.h>
+#include <push_swap.h>
 
-t_stack	*reverse_rotate(t_stack *stack)
+void	reverse_rotate(t_stack **stack)
 {
 	int		data;
 	bool	res;
 
-	res = pop_back(stack, &data);
+	res = pop_back(*stack, &data);
 	if (!res)
-		return (NULL);
-	res = push_front(stack, data);
+		error(stack, NULL);
+	res = push_front(*stack, data);
 	if (!res)
-		return (NULL);
-	return (stack);
+		error(stack, NULL);
 }
 
-t_stack	*rra(t_stack *stack_a)
+void	rra(t_stack **a)
 {
-	t_stack	*result;
-
-	result = reverse_rotate(stack_a);
-	if (!result)
-		return (result);
-	write(1, "rra\n", 4);
-	return (result);
+	reverse_rotate(a);
+	ft_putendl_fd("rra", 1);
 }
 
-t_stack	*rrb(t_stack *stack_b)
+void	rrb(t_stack **b)
 {
-	t_stack	*result;
-
-	result = reverse_rotate(stack_b);
-	if (!result)
-		return (result);
-	write(1, "rrb\n", 4);
-	return (result);
+	reverse_rotate(b);
+	ft_putendl_fd("rrb", 1);
 }
+
+/*int main(void)
+{
+	t_stack *a = create_stack();
+	push_back(a, 1);
+	push_back(a, 2);
+	rra(&a);
+}*/

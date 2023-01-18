@@ -13,15 +13,15 @@
 #ifndef SORT_H
 # define SORT_H
 
-#include <stack.h>
+# include <stack.h>
 
 /* helper function */
 t_stack_node	*find_min_node(t_stack *stack_a, size_t *index);
 
-t_stack	*radix_sort(t_stack *a, t_stack *b);
-t_stack	*sort_3(t_stack *stack_a);
-t_stack	*sort_5(t_stack *stack_a, t_stack *stack_b);
-t_stack	*sort_4(t_stack *stack_a, t_stack *stack_b);
-extern	t_stack	*sort(t_stack *stack_a, t_stack *stack_b);
+void			radix_sort(t_stack **a, t_stack **b);
+void			sort_3(t_stack **a);
+void			sort_5(t_stack **a, t_stack **b);
+void			sort_4(t_stack **a, t_stack **b);
+extern void		sort(t_stack **a, t_stack **b);
 
 #endif

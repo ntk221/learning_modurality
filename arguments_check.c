@@ -1,24 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   arguments_check.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/19 00:22:50 by kazuki            #+#    #+#             */
+/*   Updated: 2023/01/19 00:24: by kazuki           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <push_swap.h>
-
-// Usage : This function outputs string "Error\n" to stderr
-//         and call exit() to finish the program.
-// Note： exit() should be called after freed all allocated memory ...?
-void	error_message(void)
-{
-  ft_putendl_fd("Error", 2);
-  exit(1);
-}
-
-static int	is_space(const char c)
-{
-	if ((c >= 9 && c <= 13) || c == 32)
-		return (1);
-	return (0);
-}
 
 void	check(const char *str)
 {
-	while(*str != '\0')
+	while (*str != '\0')
 	{
 		if (!ft_isdigit(*str))
 			error_message();
@@ -50,7 +46,7 @@ int	ps_atoi(const char *str)
 
 	sign = 1;
 	num = 0;
-	while (*str != '\0' && is_space(*str))
+	while (*str != '\0' && ft_isspace(*str))
 		str++;
 	if (*str == '-')
 	{
@@ -100,4 +96,3 @@ bool	check_argv(int argc, char **argv)
 		return (false);
 	return (true);
 }
-

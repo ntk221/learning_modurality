@@ -6,16 +6,16 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 21:10:18 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/15 22:37:07 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/19 00:20:58 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STACK_H
 # define STACK_H
 
-#include <stdlib.h>
-#include <stdbool.h>
-#include <unistd.h>
+# include <stdlib.h>
+# include <stdbool.h>
+# include <unistd.h>
 
 typedef struct s_stack_node
 {
@@ -31,26 +31,26 @@ typedef struct s_stack
 	size_t			size;
 }	t_stack;
 
-t_stack			*create_stack(void);
-bool			push_front(t_stack *stack, int value);
-bool			push_back(t_stack *stack, int value);
-bool			pop_front(t_stack *stack, int *data);
-bool			pop_back(t_stack *stack, int *data);
-void			destroy_stack(t_stack *stack);
-void			print_stack(t_stack *stack);
+t_stack				*create_stack(void);
+bool				push_front(t_stack *stack, int value);
+bool				push_back(t_stack *stack, int value);
+bool				pop_front(t_stack *stack, int *data);
+bool				pop_back(t_stack *stack, int *data);
+void				destroy_stack(t_stack *stack);
+void				print_stack(t_stack *stack);
 
 /* normal operations */
-extern t_stack		*swap(t_stack *stack);
-extern t_stack		*sa(t_stack *stack_a);
-extern t_stack		*sb(t_stack *stack_b);
-extern t_stack		*rotate(t_stack *stack);
-extern t_stack		*ra(t_stack *stack_a);
-extern t_stack		*rb(t_stack *stack_b);
-extern t_stack		*reverse_rotate(t_stack *stack);
-extern t_stack		*rra(t_stack *stack_a);
-extern t_stack		*rrb(t_stack *stack_b);
-extern t_stack		*push(t_stack *src, t_stack *dst);
-extern t_stack		*pa(t_stack *stack_a, t_stack *stack_b);
-extern t_stack		*pb(t_stack *stack_a, t_stack *stack_b);
+extern void			swap(t_stack **stack);
+extern void			sa(t_stack **a);
+extern void			sb(t_stack **b);
+extern void			rotate(t_stack **stack);
+extern void			ra(t_stack **a);
+extern void			rb(t_stack **b);
+extern void			reverse_rotate(t_stack **stack);
+extern void			rra(t_stack **a);
+extern void			rrb(t_stack **b);
+extern void			push(t_stack **src, t_stack **dst);
+extern void			pa(t_stack **a, t_stack **b);
+extern void			pb(t_stack **a, t_stack **b);
 
 #endif

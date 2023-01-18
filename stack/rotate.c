@@ -6,44 +6,44 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 08:49:38 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/15 21:53:37 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/18 20:55:37 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stack.h>
+#include <push_swap.h>
 
-t_stack	*rotate(t_stack *stack)
+void	rotate(t_stack **stack)
 {
 	int		data;
 	bool	res;
 
-	res = pop_front(stack, &data);
+	res = pop_front(*stack, &data);
 	if (!res)
-		return (NULL);
-	res = push_back(stack, data);
+		error(stack, NULL);
+	res = push_back(*stack, data);
 	if (!res)
-		return (NULL);
-	return (stack);
+		error(stack, NULL);
 }
 
-t_stack	*ra(t_stack *stack_a)
+void	ra(t_stack **a)
 {
-	t_stack	*result;
-
-	result = rotate(stack_a);
-	if (!result)
-		return (result);
-	write(1, "ra\n", 3);
-	return (result);
+	rotate(a);
+	ft_putendl_fd("ra", 1);
 }
 
-t_stack	*rb(t_stack *stack_b)
+void	rb(t_stack **b)
 {
-	t_stack	*result;
-
-	result = rotate(stack_b);
-	if (!result)
-		return (result);
-	write(1, "rb\n", 3);
-	return (result);
+	rotate(b);
+	ft_putendl_fd("rb", 1);
 }
+
+/*#include <assert.h>
+int main(void)
+{
+	t_stack *a = create_stack();
+	push_back(a, 1);
+	push_back(a, 100);
+	ra(&a);
+	assert(a->head->val == 100);
+}*/

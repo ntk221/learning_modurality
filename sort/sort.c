@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:29:41 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/15 22:09:40 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/19 00:15:11 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 	return (stack_a);
 }*/
 
-t_stack	*radix_sort(t_stack *a, t_stack *b)
+void	radix_sort(t_stack **a, t_stack **b)
 {
 	size_t	max_bits;
 	size_t	size;
@@ -50,111 +50,106 @@ t_stack	*radix_sort(t_stack *a, t_stack *b)
 	size_t	j;
 
 	max_bits = 0;
-	while ((a->size - 1) >> max_bits != 0)
+	while (((*a)->size - 1) >> max_bits != 0)
 		max_bits++;
-	size = a->size;
+	size = (*a)->size;
 	i = 0;
 	while (i < max_bits)
 	{
 		j = 0;
 		while (j++ < size)
 		{
-			if (((a->head->val >> i) & 1) == true)
-				a = ra(a);
+			if ((((*a)->head->val >> i) & 1) == true)
+				ra(a);
 			else
-				b = pb(a, b);
+				pb(a, b);
 		}
-		while (b->size != 0)
-			a = pa(a, b);
+		while ((*b)->size != 0)
+			pa(a, b);
 		i++;
 	}
-	return (a);
 }
 
-t_stack	*sort_3(t_stack *stack_a)
+void	sort_3(t_stack **a)
 {
 	int	first;
 	int	second;
 	int	third;
 
-	first = stack_a->head->val;
-	second = stack_a->head->next->val;
-	third = stack_a->head->next->next->val;
+	first = (*a)->head->val;
+	second = (*a)->head->next->val;
+	third = (*a)->head->next->next->val;
 	if (first > second && second < third && third > first)
-		stack_a = sa(stack_a);
+		sa(a);
 	else if (first > second && second > third && third < first)
 	{
-		stack_a = sa(stack_a);
-		stack_a = rra(stack_a);
+		sa(a);
+		rra(a);
 	}
 	else if (first > second && second < third && third < first)
-		stack_a = ra(stack_a);
+		ra(a);
 	else if (first < second && second > third && third > first)
 	{
-		stack_a = sa(stack_a);
-		stack_a = ra(stack_a);
+		sa(a);
+		ra(a);
 	}
 	else if (first < second && second > third && third < first)
-		stack_a = rra(stack_a);
-	return (stack_a);
+		rra(a);
 }
 
-t_stack	*sort_5(t_stack *stack_a, t_stack *stack_b)
+void	sort_5(t_stack **a, t_stack **b)
 {
 	size_t			id;
 	t_stack_node	*min;
 	bool			flag;
 
 	flag = false;
-	if (stack_a->size == 5)
+	if ((*a)->size == 5)
 	{
 		id = 0;
-		min = find_min_node(stack_a, &id);
-		while (min != stack_a->head)
+		min = find_min_node(*a, &id);
+		while (min != (*a)->head)
 		{
-			if (id < stack_a->size / 2)
-				stack_a = ra(stack_a);
+			if (id < (*a)->size / 2)
+				ra(a);
 			else
-				stack_a = rra(stack_a);
+				rra(a);
 		}
-		stack_b = pb(stack_a, stack_b);
+		pb(a, b);
 		flag = true;
 	}
-	stack_a = sort_4(stack_a, stack_b);
+	sort_4(a, b);
 	if (flag)
-		stack_a = pa(stack_a, stack_b);
-	return (stack_a);
+		pa(a, b);
 }
 
-t_stack	*sort_4(t_stack *stack_a, t_stack *stack_b)
+void	sort_4(t_stack **a, t_stack **b)
 {
 	size_t			id;
 	t_stack_node	*min;
 
 	id = 0;
-	min = find_min_node(stack_a, &id);
-	while (min != stack_a->head)
+	min = find_min_node(*a, &id);
+	while (min != (*a)->head)
 	{
-		if (id < stack_a->size / 2)
-			stack_a = ra(stack_a);
+		if (id < (*a)->size / 2)
+			ra(a);
 		else
-			stack_a = rra(stack_a);
+			rra(a);
 	}
-	stack_b = pb(stack_a, stack_b);
-	stack_a = sort_3(stack_a);
-	stack_a = pa(stack_a, stack_b);
-	return (stack_a);
+	pb(a, b);
+	sort_3(a);
+	pa(a, b);
 }
 
-t_stack	*sort(t_stack *stack_a, t_stack *stack_b)
+void	sort(t_stack **a, t_stack **b)
 {
-	if (stack_a->size == 2)
-		sa(stack_a);
-	else if (stack_a->size == 3)
-		stack_a = sort_3(stack_a);
-	else if (stack_a->size == 5 || stack_a->size == 4)
-		stack_a = sort_5(stack_a, stack_b);
+	if ((*a)->size == 2)
+		sa(a);
+	else if ((*a)->size == 3)
+		sort_3(a);
+	else if ((*a)->size == 5 || (*a)->size == 4)
+		sort_5(a, b);
 	else
-		stack_a = radix_sort(stack_a, stack_b);
-	return (stack_a);
+		radix_sort(a, b);
 }

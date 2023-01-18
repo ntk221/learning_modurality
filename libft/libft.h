@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 12:06:17 by kazuki            #+#    #+#             */
-/*   Updated: 2022/10/15 12:06:20 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/19 00:30:02 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 
 int		ft_isalnum(int c);
+
+int		ft_isspace(int c);
 
 int		ft_isascii(int c);
 int		ft_isprint(int c);
