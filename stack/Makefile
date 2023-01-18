@@ -9,12 +9,12 @@ NAME = libstack.a
 
 all:$(NAME)
 
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
+
 $(OBJS): $(SRCS)
 			$(CC) $(CFLAGS) -c $? -I$(INCLUDE) 
 			touch $(OBJS)
-
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
 
 clean:
 	rm *.o

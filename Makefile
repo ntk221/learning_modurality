@@ -5,6 +5,8 @@ INCLUDE = include
 LIB = libft
 CC = gcc
 
+all: $(NAME)
+
 $(NAME): $(SRCS)
 	- make -C sort
 	- make -C stack
