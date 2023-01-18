@@ -6,12 +6,12 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 10:38:44 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/19 00:18:03 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/19 01:21:39 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stack.h>
-#include <push_swap.h>
+#include "stack.h"
+#include "push_swap.h"
 
 void	push(t_stack **src, t_stack **dst)
 {

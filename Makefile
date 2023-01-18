@@ -7,12 +7,14 @@ CC = gcc
 
 all: $(NAME)
 
-$(NAME): $(SRCS)
+$(NAME): $(OBJS)
 	- make -C sort
 	- make -C stack
 	- make -C libft
-	$(CC) -I$(INCLUDE)  -c $(SRCS)
 	$(CC) -I$(INCLUDE) -L$(LIB) $(OBJS) sort/*.o stack/*.o -o $(NAME) -lft
+
+$(OBJS): $(SRCS)
+	gcc -I$(INCLUDE) -c $(SRCS)
 
 clean:
 	- make clean -C sort

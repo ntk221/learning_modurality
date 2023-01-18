@@ -6,11 +6,11 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 00:34:11 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/19 00:38:00 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/19 01:21:38 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
 t_stack	*initialize_stack_a(t_stack *stack_a, int	*data, int argc)
 {

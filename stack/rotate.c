@@ -6,12 +6,12 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 08:49:38 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/18 20:55:37 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/19 01:21:36 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stack.h>
-#include <push_swap.h>
+#include "stack.h"
+#include "push_swap.h"
 
 void	rotate(t_stack **stack)
 {

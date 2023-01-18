@@ -6,12 +6,12 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 05:03:33 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/18 19:51:40 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/19 01:20:37 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stack.h>
-#include <stdbool.h>
+#include "stack.h"
+#include "stdbool.h"
 
 bool	pop_front(t_stack *stack, int *data)
 {

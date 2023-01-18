@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 00:21:37 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/19 00:22:08 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/19 01:22:35 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <unistd.h>
-# include <libft.h>
-# include <stack.h>
-# include <sort.h>
+# include "libft.h"
+# include "stack.h"
+# include "sort.h"
 
 /* util functions */
 int				ps_atoi(const char *str);

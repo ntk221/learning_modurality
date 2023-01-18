@@ -6,11 +6,11 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 20:19:37 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/19 00:35:05 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/19 01:19:23 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
 // Usage : This function outputs string "Error\n" to stderr
 //         and call exit() to finish the program.

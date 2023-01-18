@@ -6,11 +6,11 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 00:35:26 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/19 00:35:27 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/19 01:19:21 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
 // Usage : This function converts char ** type data to int * type data
 //          officially this function is used for convert argv to one array.

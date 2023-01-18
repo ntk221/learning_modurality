@@ -13,7 +13,7 @@
 #ifndef SORT_H
 # define SORT_H
 
-# include <stack.h>
+# include "stack.h"
 
 /* helper function */
 t_stack_node	*find_min_node(t_stack *stack_a, size_t *index);

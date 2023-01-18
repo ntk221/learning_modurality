@@ -6,12 +6,11 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:29:41 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/19 00:15:11 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/19 01:21:29 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <sort.h>
+#include "sort.h"
 
 /*t_stack	*bubble_sort(t_stack *stack_a, t_stack *stack_b)
 {
