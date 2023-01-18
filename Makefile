@@ -14,7 +14,8 @@ $(NAME): $(OBJS)
 	$(CC) -I$(INCLUDE) -L$(LIB) $(OBJS) sort/*.o stack/*.o -o $(NAME) -lft
 
 $(OBJS): $(SRCS)
-	gcc -I$(INCLUDE) -c $(SRCS)
+	gcc -I$(INCLUDE) -c $?
+	touch $(OBJS)
 
 clean:
 	- make clean -C sort
