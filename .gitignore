@@ -1,2 +1,2 @@
 *.o
-*test*
+sort_test.c
