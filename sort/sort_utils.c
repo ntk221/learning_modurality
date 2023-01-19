@@ -6,14 +6,14 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 03:10:47 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/19 17:11:19 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/19 18:41:44 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stdio.h"
 #include "sort.h"
 
-int		find_min_value(t_stack *stack_a, size_t *index)
+int	find_min_value(t_stack *stack_a, size_t *index)
 {
 	t_stack_node	*min;
 	size_t			size;

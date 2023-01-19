@@ -66,6 +66,7 @@ bool	has_duplicate(char **src)
 {
 	size_t	i;
 	size_t	j;
+	size_t	n;
 
 	i = 0;
 	while (src[i] != NULL)
@@ -73,7 +74,11 @@ bool	has_duplicate(char **src)
 		j = i + 1;
 		while (src[j] != NULL)
 		{
-			if (ft_strncmp(src[i], src[j], ft_strlen(src[i])) == 0)
+			if (ft_strlen(src[i]) > ft_strlen(src[j]))
+				n = ft_strlen(src[i]);
+			else
+				n = ft_strlen(src[j]);
+			if (ft_strncmp(src[i], src[j], n) == 0)
 				return (true);
 			j++;
 		}
