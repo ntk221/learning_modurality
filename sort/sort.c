@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:29:41 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/19 01:21:29 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/19 17:12:25 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,15 +99,15 @@ void	sort_3(t_stack **a)
 void	sort_5(t_stack **a, t_stack **b)
 {
 	size_t			id;
-	t_stack_node	*min;
+	int				min;
 	bool			flag;
 
 	flag = false;
 	if ((*a)->size == 5)
 	{
 		id = 0;
-		min = find_min_node(*a, &id);
-		while (min != (*a)->head)
+		min = find_min_value(*a, &id);
+		while (min != (*a)->head->val)
 		{
 			if (id < (*a)->size / 2)
 				ra(a);
@@ -125,11 +125,11 @@ void	sort_5(t_stack **a, t_stack **b)
 void	sort_4(t_stack **a, t_stack **b)
 {
 	size_t			id;
-	t_stack_node	*min;
+	int				min;
 
 	id = 0;
-	min = find_min_node(*a, &id);
-	while (min != (*a)->head)
+	min = find_min_value(*a, &id);
+	while (min != (*a)->head->val)
 	{
 		if (id < (*a)->size / 2)
 			ra(a);

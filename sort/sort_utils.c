@@ -6,17 +6,17 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 03:10:47 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/19 01:21:15 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/19 17:11:19 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stdio.h"
 #include "sort.h"
 
-t_stack_node	*find_min_node(t_stack *stack_a, size_t *index)
+int		find_min_value(t_stack *stack_a, size_t *index)
 {
 	t_stack_node	*min;
-	int				size;
+	size_t			size;
 	t_stack_node	*itr;
 	size_t			id;
 
@@ -35,5 +35,5 @@ t_stack_node	*find_min_node(t_stack *stack_a, size_t *index)
 		size--;
 		id++;
 	}
-	return (min);
+	return (min->val);
 }

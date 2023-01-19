@@ -16,7 +16,7 @@
 # include "stack.h"
 
 /* helper function */
-t_stack_node	*find_min_node(t_stack *stack_a, size_t *index);
+int				find_min_value(t_stack *stack_a, size_t *index);
 
 void			radix_sort(t_stack **a, t_stack **b);
 void			sort_3(t_stack **a);

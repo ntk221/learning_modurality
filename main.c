@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 00:34:11 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/19 01:21:38 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/19 17:09:09 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	main(int argc, char **argv)
 	int		*data;
 
 	if (argc < 2)
-		error_message();
+		return (0);
 	if (!check_argv(argc, argv))
 		error_message();
 	data = argv_to_array(argc, argv);
