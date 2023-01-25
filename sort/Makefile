@@ -11,7 +11,7 @@ INCLUDE = ../include
 all:	$(OBJS)
 
 $(OBJS): $(SRCS)
-	$(CC) -I$(INCLUDE) -c $? 
+	$(CC) $(CFLAGS) -I$(INCLUDE) -c $? 
 	touch $(OBJS)
 
 clean:
