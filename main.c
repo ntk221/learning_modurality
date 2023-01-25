@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 00:34:11 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/19 17:09:09 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/26 07:59:48 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,26 @@ bool	is_sorted(t_stack *stack)
 	return (true);
 }
 
+bool	has_duplicate(int *data)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (data[i])
+	{
+		j = 0;
+		while (data[j])
+		{
+			if (i != j && data[i] == data[j])
+				return (true);
+			j++;
+		}
+		i++;
+	}
+	return (false);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
@@ -56,9 +76,9 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	if (!check_argv(argc, argv))
-		error_message();
 	data = argv_to_array(argc, argv);
+	if (has_duplicate(data))
+		error_message();
 	data = compression(data, argc);
 	a = initialize_stack_a(a, data, argc);
 	free(data);

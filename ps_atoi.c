@@ -60,46 +60,6 @@ int	ps_atoi(const char *str)
 	return (num);
 }
 
-bool	has_duplicate(char **src)
-{
-	size_t	i;
-	size_t	j;
-	size_t	n;
-
-	i = 0;
-	while (src[i] != NULL)
-	{
-		j = i + 1;
-		while (src[j] != NULL)
-		{
-			if (ft_strlen(src[i]) > ft_strlen(src[j]))
-				n = ft_strlen(src[i]);
-			else
-				n = ft_strlen(src[j]);
-			if (ft_strncmp(src[i], src[j], n) == 0)
-				return (true);
-			j++;
-		}
-		i++;
-	}
-	return (false);
-}
-
-bool	check_argv(int argc, char **argv)
-{
-	int		i;	
-
-	i = 1;
-	while (i < argc)
-	{
-		ps_atoi(argv[i]);
-		i++;
-	}
-	if (has_duplicate(argv))
-		return (false);
-	return (true);
-}
-
 /*#include <stdio.h>
 #include <limits.h>
 #include <assert.h>

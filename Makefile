@@ -1,5 +1,5 @@
 NAME = push_swap
-SRCS = main.c arguments_check.c compression.c error.c
+SRCS = main.c ps_atoi.c compression.c error.c
 OBJS = $(SRCS:%.c=%.o)
 INCLUDE = include
 LIB = libft
