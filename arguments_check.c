@@ -24,19 +24,19 @@ void	check(const char *str)
 
 int	atoi_loop(const char *str, int num, int sign)
 {
-	int	prev;
+	long long int	n;
 
+	n = num;
 	while (*str >= '0' && *str <= '9')
 	{
-		prev = num;
-		num = num * 10 + sign * (*str - '0');
-		if (num > prev && sign == -1)
+		n = n * 10 + (*str - '0') * sign;
+		if (n < INT_MIN && sign == -1)
 			error_message();
-		if (num < prev && sign == 1)
+		if (n > INT_MAX && sign == 1)
 			error_message();
 		str++;
 	}
-	return (num);
+	return (n);
 }
 
 int	ps_atoi(const char *str)
@@ -55,8 +55,6 @@ int	ps_atoi(const char *str)
 	}
 	else if (*str == '+')
 		str++;
-	if (!(*str >= '0' && *str <= '9'))
-		error_message();
 	check(str);
 	num = atoi_loop(str, num, sign);
 	return (num);
@@ -101,3 +99,22 @@ bool	check_argv(int argc, char **argv)
 		return (false);
 	return (true);
 }
+
+/*#include <stdio.h>
+#include <limits.h>
+#include <assert.h>
+int main()
+{
+	int res = ps_atoi("1");
+	assert(res == 1);
+	res = ps_atoi("-1");
+	assert(res == -1);
+	res = ps_atoi("");
+	// printf("%d\n", INT_MAX);
+	res = ps_atoi("2147483647");
+	assert(res == 2147483647);
+	// ps_atoi("2147483648"); Error
+	res = ps_atoi("-2147483648");
+	assert(res == INT_MIN);
+	// ps_atoi("-2147483649"); Error
+}*/
