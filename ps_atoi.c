@@ -14,6 +14,8 @@
 
 void	check(const char *str)
 {
+	if (!ft_isdigit(*str))
+		error_message();
 	while (*str != '\0')
 	{
 		if (!ft_isdigit(*str))

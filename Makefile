@@ -12,7 +12,7 @@ $(NAME): $(OBJS)
 	- make -C sort
 	- make -C stack
 	- make -C libft
-	$(CC) $(CFLAGS) -I$(INCLUDE) -L$(LIB) $(OBJS) sort/*.o stack/*.o -o $(NAME) -lft
+	${CC} $(CFLAGS) -I$(INCLUDE) -L$(LIB) $(OBJS) sort/*.o stack/*.o -o $(NAME) -lft
 
 $(OBJS): $(SRCS)
 	gcc $(CFLAGS) -I$(INCLUDE) -c $?

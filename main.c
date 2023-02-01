@@ -48,18 +48,18 @@ bool	is_sorted(t_stack *stack)
 	return (true);
 }
 
-bool	has_duplicate(int *data)
+bool	has_duplicate(char **argv)
 {
 	int		i;
 	int		j;
 
-	i = 0;
-	while (data[i])
+	i = 1;
+	while (argv[i] != NULL)
 	{
-		j = 0;
-		while (data[j])
+		j = i + 1;
+		while (argv[j] != NULL)
 		{
-			if (i != j && data[i] == data[j])
+			if (i != j && ps_atoi(argv[i]) == ps_atoi(argv[j]))
 				return (true);
 			j++;
 		}
@@ -77,7 +77,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	data = argv_to_array(argc, argv);
-	if (has_duplicate(data))
+	if (has_duplicate(argv))
 		error_message();
 	data = compression(data, argc);
 	a = initialize_stack_a(a, data, argc);

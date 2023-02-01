@@ -29,7 +29,7 @@ void			error_message(void);
 void			error(t_stack **src, t_stack **dst);
 t_stack			*initialize_stack_a(t_stack *stack_a, int *data, int argc);
 bool			is_sorted(t_stack *stack);
-bool			has_duplicate(int *data);
+bool			has_duplicate(char **argv);
 int				*argv_to_array(int argc, char **argv);
 int				linear_search(int *ordered_array, int search);
 int				*bubble_sort_arr(int *list, int len);
